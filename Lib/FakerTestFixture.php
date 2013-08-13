@@ -7,7 +7,8 @@ class FakerTestFixture extends CakeTestFixture
 	public function insert($db)
 	{
 		$generator = \Faker\Factory::create();
-		$generator->seed(65876587);
+		if ($seed = Configure::read('faker.seed'))
+			$generator->seed($seed);
 		if ( ! ClassRegistry::isKeySet('faker')) {
 			ClassRegistry::addObject('faker', new Populator($generator));
 		}
