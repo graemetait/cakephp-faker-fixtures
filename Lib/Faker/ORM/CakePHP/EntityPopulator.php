@@ -50,7 +50,6 @@ class EntityPopulator
         $formatters = array();
         $class = $this->class;
         $cake_model = \ClassRegistry::init($class);
-        // var_dump($cake_model->schema());
         $nameGuesser = new \Faker\Guesser\Name($generator);
         $columnTypeGuesser = new ColumnTypeGuesser($generator);
         foreach ($cake_model->schema() as $fieldName => $fieldMeta) {
