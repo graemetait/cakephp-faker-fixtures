@@ -55,7 +55,7 @@ class EntityPopulator
         foreach ($cake_model->schema() as $fieldName => $fieldMeta) {
             if ($cake_model->isForeignKey($fieldName)) {
                 $relatedClass = $this->findRelatedClass($cake_model->belongsTo, $fieldName);
-                $formatters[$fieldName] = function($inserted) use ($relatedClass) { return isset($inserted[$relatedClass]) ? $inserted[$relatedClass][mt_rand(0, count($inserted[$relatedClass]) - 1)] : null; };
+                $formatters[$fieldName] = function($inserted) use ($relatedClass) { return isset($inserted[$relatedClass]) ? $inserted[$relatedClass][mt_rand(0, count($inserted[$relatedClass]) - 1)] : 0; };
                 continue;
             }
 
