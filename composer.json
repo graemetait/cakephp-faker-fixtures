@@ -19,7 +19,7 @@
     "require": {
         "php": ">=5.3.0",
         "composer/installers": "*",
-        "fzaninotto/faker": "1.2.*@dev"
+        "fzaninotto/faker": "v1.2.0"
     },
     "extra": {
         "branch-alias": {
