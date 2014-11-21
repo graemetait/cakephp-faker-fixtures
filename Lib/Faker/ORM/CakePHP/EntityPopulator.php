@@ -171,7 +171,7 @@ class EntityPopulator
             $modifier($obj, $insertedEntities);
         }
 
-        $obj->save($obj->data);
+        $obj->save($obj->data, array('validate' => false, 'callbacks' => false));
 
         return $obj->getLastInsertId();
     }
