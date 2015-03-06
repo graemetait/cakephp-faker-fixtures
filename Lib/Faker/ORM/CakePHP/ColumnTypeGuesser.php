@@ -18,7 +18,8 @@ class ColumnTypeGuesser
             case 'boolean':
                 return function() use ($generator) { return $generator->boolean; };
             case 'decimal':
-                $size = isset($class->fieldMappings[$fieldName]['precision']) ? $class->fieldMappings[$fieldName]['precision'] : 2;
+                $length = explode(',', $field['length']);
+                $size = isset($length[1]) ? $length[1] : 2;
 
                 return function() use ($generator, $size) { return $generator->randomNumber($size + 2) / 100; };
             case 'smallint':
