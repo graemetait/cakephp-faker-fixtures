@@ -6,6 +6,8 @@ class FakerTestFixture extends CakeTestFixture
     protected $generator;
     protected $populator;
     protected $seed;
+    protected $model_name;
+    protected $num_records;
 
     /**
      * FakerTestFixture constructor.
