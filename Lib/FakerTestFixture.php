@@ -20,6 +20,7 @@ class FakerTestFixture extends CakeTestFixture
         if (!ClassRegistry::isKeySet('faker')) {
             ClassRegistry::addObject('faker', new Populator($this->generator));
         }
+        parent::__construct();
     }
 
     public function insert($db)
@@ -40,7 +41,7 @@ class FakerTestFixture extends CakeTestFixture
     {
         // Configure faker.
         $this->generator->seed($this->seed);
-        $this->populator = ClassRegistry::getObject('faker');
+        $this->populator = \ClassRegistry::getObject('faker');
 
         // Set up the params.
         $modelName = is_null($modelName) ? $this->model_name : $modelName;
@@ -49,7 +50,7 @@ class FakerTestFixture extends CakeTestFixture
 
         // Clean out previous saved data.
         if (!$appendRecords) {
-            $model = ClassRegistry::init($modelName);
+            $model = \ClassRegistry::init($modelName);
             $model->deleteAll();
         }
 
