@@ -1,9 +1,9 @@
 {
-    "name": "burriko/cake-faker",
+    "name": "mattdharmon/cakephp-faker-fixtures",
     "description": "CakePHP fixtures plugin using Faker.",
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "fixtures", "faker"],
-    "homepage": "https://github.com/burriko/cakephp-faker-fixtures",
+    "homepage": "https://github.com/mattdharmon/cakephp-faker-fixtures",
     "license": "MIT",
     "authors": [
         {
@@ -20,10 +20,5 @@
         "php": ">=5.3.0",
         "composer/installers": "*",
         "fzaninotto/faker": "v1.4.0"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        }
     }
 }
