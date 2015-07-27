@@ -15,11 +15,13 @@ class FakerTestFixture extends CakeTestFixture
     public function __construct()
     {
         $this->generator = \Faker\Factory::create();
+
         if ($this->seed = Configure::read('faker.seed')) {
+            $this->generator->seed($this->seed);
         }
-        if (!ClassRegistry::isKeySet('faker')) {
-            ClassRegistry::addObject('faker', new Populator($this->generator));
-        }
+
+        $this->populator = new Populator($this->generator);
+
         parent::__construct();
     }
 
@@ -39,10 +41,6 @@ class FakerTestFixture extends CakeTestFixture
      */
     public function generate($modelName = null, $numRecords = null, array $alterFields = null, $appendRecords = false)
     {
-        // Configure faker.
-        $this->generator->seed($this->seed);
-        $this->populator = \ClassRegistry::getObject('faker');
-
         // Set up the params.
         $modelName = is_null($modelName) ? $this->model_name : $modelName;
         $numRecords = is_null($numRecords) ? $this->num_records : $numRecords;
