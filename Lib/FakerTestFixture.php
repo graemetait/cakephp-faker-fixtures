@@ -27,7 +27,7 @@ class FakerTestFixture extends CakeTestFixture
 
     public function insert($db)
     {
-        $this->generate();
+        $this->generate(null, null, null, true);
     }
 
     /**
