@@ -27,6 +27,11 @@ class FakerTestFixture extends CakeTestFixture
 
     public function insert($db)
     {
+        // Just in case they have some hardcoded fixtures in place.
+        if (!is_null($this->records)) {
+            parent::insert($db);
+        }
+
         $this->generate(null, null, null, true);
     }
 
@@ -49,7 +54,7 @@ class FakerTestFixture extends CakeTestFixture
         // Clean out previous saved data.
         if (!$appendRecords) {
             $model = \ClassRegistry::init($modelName);
-            $model->deleteAll();
+            $model->deleteAll(array("{$modelName}.id IS NOT NULL"));
         }
 
         // Populate the table.
