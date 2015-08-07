@@ -49,7 +49,7 @@ class FakerTestFixture extends CakeTestFixture
         // Set up the params.
         $modelName = is_null($modelName) ? $this->model_name : $modelName;
         $numRecords = is_null($numRecords) ? $this->num_records : $numRecords;
-        $alterFields = is_null($alterFields) ? $this->alterFields($this->generator) : $alterFields;
+        $alterFields = is_null($alterFields) ? $this->alterFields($this->generator) : array_merge($this->alterFields($this->generator), $alterFields);
 
         // Clean out previous saved data.
         if (!$appendRecords) {
