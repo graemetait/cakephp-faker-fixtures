@@ -28,10 +28,6 @@ local.properties
 # PDT-specific
 .buildpath
 
-#######################
-## PHPStorm (JetBrains)
-#######################
-.idea
 
 #################
 ## Visual Studio
@@ -217,9 +213,3 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-
-
-########
-## Misc
-########
-vendor
